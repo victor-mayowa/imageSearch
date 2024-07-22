@@ -5,25 +5,26 @@ class SearchBar extends React.Component {
   //   onInputChange(event) {
   //     console.log(event.target.value);
   //   }
-//   constructor(){
-//       super()
-//       this.onFormSubmit = this.onFormSubmit.bind(this)
-//   }
+  //   constructor(){
+  //       super()
+  //       this.onFormSubmit = this.onFormSubmit.bind(this)
+  //   }
 
-state = { term: "" };
+  state = { term: "" };
 
-onFormSubmit = (e) => {
-    e.preventDefault()
+  onFormSubmit = (e) => {
+    e.preventDefault();
     // console.log(this.state.term)
     //we need to work on the input gotten from the users, we use to use the app components, since props can only be passed from top to bottom. we used a callback function passed as props to send the user input to the parent component(app)
-    this.props.onSubmit(this.state.term)
-}
-//fix for the error of undefined or use a constructor
+    this.props.onSubmit(this.state.term);
+    this.setState({ term: "" });
+  };
+  //fix for the error of undefined or use a constructor
 
   render() {
     return (
       <div className="ui segment">
-        <form onSubmit={this.onFormSubmit}  className="ui form">
+        <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
             <label>Image Search</label>
             <input
